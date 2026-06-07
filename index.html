@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aley Raza | German Teacher & Career Consultant</title>
+
+<style>
+:root{
+    --black:#000;
+    --red:#DD0000;
+    --gold:#FFCE00;
+    --bg:#f6f7f9;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI, Arial, sans-serif;
+}
+
+body{
+    background:var(--bg);
+    color:#222;
+    line-height:1.6;
+}
+
+/* HEADER */
+header{
+    background:linear-gradient(135deg,#000,#222);
+    color:white;
+    text-align:center;
+    padding:70px 20px;
+    position:relative;
+    border-bottom:6px solid var(--red);
+}
+
+.profile-img{
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    object-fit:cover;
+    border:4px solid var(--gold);
+    margin-bottom:15px;
+}
+
+h1{
+    color:var(--gold);
+    font-size:2.6rem;
+}
+
+.sub{
+    font-size:1.2rem;
+    margin-top:8px;
+}
+
+.lang-switch{
+    position:absolute;
+    top:15px;
+    right:15px;
+}
+
+.lang-switch button{
+    background:var(--gold);
+    border:none;
+    padding:8px 12px;
+    margin-left:5px;
+    cursor:pointer;
+    font-weight:bold;
+    border-radius:5px;
+}
+
+/* SECTIONS */
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:60px 20px;
+}
+
+.title{
+    text-align:center;
+    font-size:2rem;
+    margin-bottom:30px;
+    position:relative;
+}
+
+.title::after{
+    content:"";
+    width:70px;
+    height:4px;
+    background:var(--red);
+    display:block;
+    margin:10px auto;
+}
+
+/* BUTTON */
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:var(--red);
+    color:white;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.btn:hover{
+    background:var(--gold);
+    color:black;
+}
+
+/* CARDS */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    border-top:4px solid var(--red);
+}
+
+/* TESTIMONIALS */
+.testimonial{
+    background:white;
+    padding:20px;
+    border-left:5px solid var(--gold);
+    border-radius:8px;
+}
+
+/* CONTACT */
+.contact{
+    background:#111;
+    color:white;
+    padding:60px 20px;
+}
+
+.contact-info{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+form{
+    max-width:600px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+input, textarea{
+    padding:12px;
+    border-radius:6px;
+    border:none;
+}
+
+button{
+    padding:12px;
+    background:var(--red);
+    color:white;
+    border:none;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#000;
+    color:white;
+    border-top:3px solid var(--gold);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="lang-switch">
+        <button onclick="setLang('en')">EN</button>
+        <button onclick="setLang('de')">DE</button>
+    </div>
+
+    <img src="C:\MyData\personal\usavisa_2019\fotos\foto_zaidi.jpg" class="profile-img">
+
+    <h1>ALEY RAZA</h1>
+    <div class="sub" id="subtitle"></div>
+    <div id="exp"></div>
+
+    <a class="btn" href="#contact" id="consultBtn"></a>
+</header>
+
+<section class="container">
+    <h2 class="title" id="aboutTitle"></h2>
+    <p id="aboutText" style="text-align:center;max-width:800px;margin:auto;"></p>
+</section>
+
+<section class="container">
+    <h2 class="title" id="serviceTitle"></h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3 id="courseTitle"></h3>
+            <p id="courseList"></p>
+        </div>
+
+        <div class="card">
+            <h3 id="appTitle"></h3>
+            <p id="appList"></p>
+        </div>
+
+        <div class="card">
+            <h3 id="visaTitle"></h3>
+            <p id="visaList"></p>
+        </div>
+
+    </div>
+</section>
+
+<section class="container">
+    <h2 class="title" id="scheduleTitle"></h2>
+    <div style="background:white;padding:20px;border-radius:10px;text-align:center;">
+        <h3>A1 Course</h3>
+        <p id="scheduleText"></p>
+    </div>
+</section>
+
+<section class="container">
+    <h2 class="title" id="testTitle"></h2>
+
+    <div class="grid">
+
+        <div class="testimonial" id="t1"></div>
+        <div class="testimonial" id="t2"></div>
+
+    </div>
+</section>
+
+<section class="contact" id="contact">
+
+    <h2 class="title" style="color:white;" id="contactTitle"></h2>
+
+    <div class="contact-info">
+        <p id="emailText"></p>
+        <p id="whatsappText"></p>
+    </div>
+
+    <form>
+        <input id="name" type="text">
+        <input id="email" type="email">
+        <input id="phone" type="text">
+        <textarea id="message"></textarea>
+        <button type="button" id="sendBtn"></button>
+    </form>
+
+</section>
+
+<footer id="footer"></footer>
+
+<script>
+
+const content = {
+
+en:{
+subtitle:"German Teacher • IT Professional • Career Consultant",
+exp:"15 Years Teaching Experience | Online Classes",
+consult:"Book a Free Consultation",
+
+aboutTitle:"About Me",
+about:"I am an experienced IT professional living in Germany for almost 25 years and working as an independent teacher at VHS.",
+
+serviceTitle:"Services",
+
+courseTitle:"German Language Courses",
+courseList:"A1, A2, B1 Courses • Conversation Practice • Exercises",
+
+appTitle:"Application Support",
+appList:"Ausbildung • Dual Studies • CV & Motivation Letter",
+
+visaTitle:"Interview & Visa Support",
+visaList:"Interview Preparation • Visa Guidance • Career Advice",
+
+scheduleTitle:"Course Schedule",
+schedule:"Friday, Saturday & Sunday — 2 hours per day",
+
+testTitle:"Student Testimonials",
+t1:"“Clear, structured and very helpful German classes.” — Mazhar",
+t2:"“Highly recommended for learning German effectively.” — Imran",
+
+contactTitle:"Contact",
+email:"Email: aleyraza57@hotmail.com",
+whatsapp:"WhatsApp: +49 1521 2835122",
+
+name:"Name",
+mail:"Email",
+phone:"Phone",
+msg:"Message",
+send:"Send Message",
+
+footer:"© 2026 Aley Raza | German Teacher & Consultant"
+},
+
+de:{
+subtitle:"Deutschlehrer • IT-Experte • Karriereberater",
+exp:"15 Jahre Unterrichtserfahrung | Online-Unterricht",
+consult:"Kostenlose Beratung buchen",
+
+aboutTitle:"Über mich",
+about:"Ich bin ein erfahrener IT-Experte und lebe seit fast 25 Jahren in Deutschland und arbeite als Dozent beim VHS.",
+
+serviceTitle:"Dienstleistungen",
+
+courseTitle:"Deutschkurs",
+courseList:"A1, A2, B1 Kurse • Konversation • Übungen",
+
+appTitle:"Bewerbungshilfe",
+appList:"Ausbildung • Duales Studium • Lebenslauf & Motivationsschreiben",
+
+visaTitle:"Interview & Visa",
+visaList:"Interview Vorbereitung • Visa Beratung • Karriere Tipps",
+
+scheduleTitle:"Kursplan",
+schedule:"Freitag, Samstag & Sonntag — 2 Stunden täglich",
+
+testTitle:"Teilnehmerstimmen",
+t1:"„Sehr strukturierter und hilfreicher Unterricht.“ — Mazhar",
+t2:"„Sehr empfehlenswert zum Deutschlernen.“ — Imran",
+
+contactTitle:"Kontakt",
+email:"E-Mail: aleyraza57@hotmail.com",
+whatsapp:"WhatsApp: +49 1521 2835122",
+
+name:"Name",
+mail:"E-Mail",
+phone:"Telefon",
+msg:"Nachricht",
+send:"Nachricht senden",
+
+footer:"© 2026 Aley Raza | Deutschlehrer & Berater"
+}
+
+};
+
+function setLang(lang){
+
+document.getElementById("subtitle").innerText = content[lang].subtitle;
+document.getElementById("exp").innerText = content[lang].exp;
+document.getElementById("consultBtn").innerText = content[lang].consult;
+
+document.getElementById("aboutTitle").innerText = content[lang].aboutTitle;
+document.getElementById("aboutText").innerText = content[lang].about;
+
+document.getElementById("serviceTitle").innerText = content[lang].serviceTitle;
+
+document.getElementById("courseTitle").innerText = content[lang].courseTitle;
+document.getElementById("courseList").innerText = content[lang].courseList;
+
+document.getElementById("appTitle").innerText = content[lang].appTitle;
+document.getElementById("appList").innerText = content[lang].appList;
+
+document.getElementById("visaTitle").innerText = content[lang].visaTitle;
+document.getElementById("visaList").innerText = content[lang].visaList;
+
+document.getElementById("scheduleTitle").innerText = content[lang].scheduleTitle;
+document.getElementById("scheduleText").innerText = content[lang].schedule;
+
+document.getElementById("testTitle").innerText = content[lang].testTitle;
+document.getElementById("t1").innerText = content[lang].t1;
+document.getElementById("t2").innerText = content[lang].t2;
+
+document.getElementById("contactTitle").innerText = content[lang].contactTitle;
+document.getElementById("emailText").innerText = content[lang].email;
+document.getElementById("whatsappText").innerText = content[lang].whatsapp;
+
+document.getElementById("name").placeholder = content[lang].name;
+document.getElementById("email").placeholder = content[lang].mail;
+document.getElementById("phone").placeholder = content[lang].phone;
+document.getElementById("message").placeholder = content[lang].msg;
+document.getElementById("sendBtn").innerText = content[lang].send;
+
+document.getElementById("footer").innerText = content[lang].footer;
+
+}
+
+// default language
+setLang('en');
+
+</script>
+
+</body>
+</html>
